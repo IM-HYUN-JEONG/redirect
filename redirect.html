@@ -9,14 +9,8 @@
       window.onload = function () {
         const params = new URLSearchParams(window.location.search);
         const targetUrl = params.get("url"); // 'url' 파라미터 값을 추출
-        const defaultUrl = "https://naver.com";
-        if (targetUrl) {
-          // 'url' 값이 존재할 때 해당 주소로 리다이렉트
-          window.location.href = targetUrl;
-        } else {
-          // 기본 URL 설정
-          window.location.href = defaultUrl;
-        }
+        
+        window.location.href = targetUrl;// 페이지가 로드된 후 0초 만에 리다이렉트
       };
     </script>
   </head>
