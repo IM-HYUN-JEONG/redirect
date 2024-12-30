@@ -4,13 +4,22 @@
   <head>
     <meta charset="UTF-8" />
     <title>Redirecting...</title>
+    <!-- 검색엔진 크롤링 방지 -->
+    <meta name="robots" content="noindex, nofollow" />
+
     <script>
       // URL 파라미터에서 `url` 값을 받아 리다이렉트
       window.onload = function () {
         const params = new URLSearchParams(window.location.search);
         const targetUrl = params.get("url"); // 'url' 파라미터 값을 추출
-        
-        window.location.href = targetUrl;// 페이지가 로드된 후 0초 만에 리다이렉트
+        const defaultUrl = "https://naver.com";
+        if (targetUrl) {
+          // 'url' 값이 존재할 때 해당 주소로 리다이렉트
+          window.location.href = targetUrl;
+        } else {
+          // 기본 URL 설정
+          window.location.href = defaultUrl;
+        }
       };
     </script>
   </head>
